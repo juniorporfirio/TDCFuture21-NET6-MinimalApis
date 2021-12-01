@@ -6,14 +6,10 @@
 
             var apis = System.Reflection.Assembly.GetExecutingAssembly()
             .GetTypes()
-            .Where(type => typeof(IApiDefinition).IsAssignableFrom(type) && !type.IsInterface);
+            .Where(type => typeof(IApiDefinition).IsAssignableFrom(type) && !type.IsInterface)
+            .Select(types=> Activator.CreateInstance(types)).Cast<IApiDefinition>();
 
-            foreach(var api in apis)
-            {
-                var instance = (IApiDefinition)Activator.CreateInstance(api);
-                ArgumentNullException.ThrowIfNull(instance,nameof(api));
-                apiDefinitions.Add(instance);
-            }
+            apiDefinitions.AddRange(apis);
 
             foreach(var apiDefinition in apiDefinitions)
             {
