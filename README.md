@@ -1,5 +1,7 @@
 # Demo TDC Future 2021 - Arquitetura .NET
 
+[![.NET Core 6](https://github.com/juniorporfirio/TDCFuture21-NET6-MinimalApis/actions/workflows/net6.yml/badge.svg?branch=main)](https://github.com/juniorporfirio/TDCFuture21-NET6-MinimalApis/actions/workflows/net6.yml)
+
 Demo utilizada na live realizada no TDC Future 2021 no dia 02/12, abordando o MinimalApis do .NET6, algumas possibilidades de organização do projeto, validações e testes unitários e integrados.
 
 # Pré-requisitos
@@ -10,10 +12,10 @@ Demo utilizada na live realizada no TDC Future 2021 no dia 02/12, abordando o Mi
 # Pacotes utilizados
 
 ## Aplicações
-- FluentValidation.AspNetCore
-- MinimalApis.Extensions
-- MinimalApis.Validator
-- Microsoft.EntityFrameworkCore.Sqlite
+- FluentValidation.AspNetCore - https://github.com/FluentValidation/FluentValidation
+- MinimalApis.Extensions - https://github.com/DamianEdwards/MinimalApis.Extensions
+- MinimalApis.Validator - https://github.com/juniorporfirio/MinimalApis.Validators
+- Microsoft.EntityFrameworkCore.Sqlite 
 - Microsoft.EntityFrameworkCore.Tools
 - Swashbuckle.AspNetCore
 
@@ -24,11 +26,11 @@ Demo utilizada na live realizada no TDC Future 2021 no dia 02/12, abordando o Mi
 - NSubstitute
 - Microsoft.AspNetCore.Mvc.Testing
 - Microsoft.EntityFrameworkCore.InMemory
-- MiminalApis.Extensions
+- MiminalApis.Extensions - https://github.com/juniorporfirio/MinimalApis.Validators
 
 # Demos
-- TDCFutureTalks -  Exemplo de palestrantes utilizando MinimalApis e Swagger.
-- TDCFutureTalks.Strutured  - Exemplo estruturado utilizando Extensions Methods.
+- TDCFutureTalks -  Exemplo contexto palestras utilizando MinimalApis e Swagger.
+- TDCFutureTalks.Strutured  - Exemplo estruturado utilizando ExtensionsMethods.
 - TDCFutureTalks.Strutured2 - Exemplo estruturado utilizando classes e DI.
 - TDCFutureTalks.Reflection - Exemplo estruturado com uso de Reflection e AssemblyScan
 
