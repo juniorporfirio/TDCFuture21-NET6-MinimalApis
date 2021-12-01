@@ -1,4 +1,8 @@
-﻿namespace TDCFutureTalks.Strutured.Endpoints;
+﻿
+/* 
+ * Problem of UnitTest Results 
+ * https://github.com/dotnet/aspnetcore/blob/main/src/Http/Http.Results/src/OkObjectResult.cs
+ */
 public static class TalkEndpointExtensions
 {
 
@@ -13,6 +17,12 @@ public static class TalkEndpointExtensions
         return Results.Extensions.Ok(talkRepository.GetAll());
     }
 
+    internal static IResult Add(ITalkRepository talkRepository, Talk talk)
+    {
+        talkRepository.Insert(talk);
+        return Results.Extensions.Created<Talk>($"/talk/{talk.Id}", talk);
+    }
+
     internal static IResult Get(ITalkRepository talkRepository, Guid id)
     {
         var talk = talkRepository.Get(id);
@@ -21,11 +31,5 @@ public static class TalkEndpointExtensions
             return Results.Extensions.NotFound();
 
         return Results.Extensions.Ok(talk);
-    }
-
-    internal static IResult Add(ITalkRepository talkRepository, Talk talk)
-    {
-        talkRepository.Insert(talk);
-        return Results.Extensions.Created<Talk>($"/talk/{talk.Id}", talk);
     }
 }

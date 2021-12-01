@@ -11,6 +11,7 @@
 		<Using Include="MiminalApis.Validators" />
 		<Using Include="System.ComponentModel.DataAnnotations" />
 		<Using Include="MinimalApis.Extensions.Results"/>
+		<Using Include="System.Collections.ObjectModel" />
 	</ItemGroup>
 
 	<ItemGroup>

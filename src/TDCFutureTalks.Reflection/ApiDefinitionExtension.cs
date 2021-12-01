@@ -1,7 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using TDCFutureTalks.Strutured.Endpoints;
-
-public static class ApiDefinitionExtension
+﻿public static class ApiDefinitionExtension
     {
         public static void AddApiDefinition(this IServiceCollection services)
         {

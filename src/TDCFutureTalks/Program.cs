@@ -1,5 +1,3 @@
-
-using FluentValidation;
 var builder = WebApplication.CreateBuilder(args);
 
 //ConfigureServices
@@ -16,12 +14,10 @@ if (app.Environment.IsDevelopment())
 }
 
 //Endpoints
-app.MapGet("/talk", (TalkContext context)=>
+app.MapGet("/talk", (TalkContext context) =>
 {
     return Results.Ok(context.Talk.ToList());
-})
-.Produces<List<Talk>>(200)
-.WithTags("Get");
+});
 
 app.MapGet("/talk/{id}", async (TalkContext context, Guid id) =>
 {

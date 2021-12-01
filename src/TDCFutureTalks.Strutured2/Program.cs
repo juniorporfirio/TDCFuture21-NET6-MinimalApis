@@ -1,5 +1,3 @@
-using TDCFutureTalks.Strutured.Endpoints;
-
 var builder = WebApplication.CreateBuilder(args);
 
 //ConfigureServices
@@ -8,6 +6,7 @@ builder.Services.AddSwaggerGen();
 
 var connection = builder.Configuration.GetConnectionString("Sqlite");
 builder.Services.AddDbContext<TalkContext>(options => options.UseSqlite(connection));
+
 builder.Services.AddScoped<ITalkRepository, TalkRepository>();
 builder.Services.AddSingleton<IApi, TalkApi>();
 

@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 using NSubstitute;
 using System.Collections.Generic;
-using TDCFutureTalks.Strutured.Endpoints;
 using Xunit;
 
 namespace TDCFutureTalks.UnitTests;
