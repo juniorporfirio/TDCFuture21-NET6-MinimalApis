@@ -6,12 +6,6 @@
 }
 public class TalkApi : IApiDefinition
 {
-    private readonly ITalkRepository _talkRepository;
-
-    public TalkApi(ITalkRepository talkRepository)
-    {
-        _talkRepository = talkRepository;
-    }
     public void RegisterEndpoint(WebApplication app)
     {
         app.MapGet("/talk", All).Produces<List<Talk>>(200).WithTags("Get");
@@ -19,14 +13,14 @@ public class TalkApi : IApiDefinition
         app.MapPost("/talk/new", Add).Produces<Talk>(201).ProducesValidationProblem().WithTags("Alter").WithValidator<Talk>();
     }
 
-    IResult All()
+    IResult All(ITalkRepository talkRepository)
     {
-        return Results.Extensions.Ok(_talkRepository.GetAll());
+        return Results.Extensions.Ok(talkRepository.GetAll());
     }
 
-    IResult Get(Guid id)
+    IResult Get(ITalkRepository talkRepository,Guid id)
     {
-        var talk = _talkRepository.Get(id);
+        var talk = talkRepository.Get(id);
 
         if (talk is null)
             return Results.Extensions.NotFound();
@@ -34,9 +28,9 @@ public class TalkApi : IApiDefinition
         return Results.Extensions.Ok(talk);
     }
 
-    IResult Add(Talk talk)
+    IResult Add(ITalkRepository talkRepository, Talk talk)
     {
-        _talkRepository.Insert(talk);
+        talkRepository.Insert(talk);
         return Results.Extensions.Created($"/talk/{talk.Id}", talk);
     }
 

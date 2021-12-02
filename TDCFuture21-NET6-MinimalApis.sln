@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDCFutureTalks.Strutured2",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDCFutureTalks.Reflection", "src\TDCFutureTalks.Reflection\TDCFutureTalks.Reflection.csproj", "{66F42D5A-B3B2-4C37-B75F-71D54AA381C8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDCFutureTalks.Mediator", "src\TDCFutureTalks.Mediator\TDCFutureTalks.Mediator.csproj", "{9D0112E0-F891-46F1-B634-B23FE322F017}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{66F42D5A-B3B2-4C37-B75F-71D54AA381C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66F42D5A-B3B2-4C37-B75F-71D54AA381C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66F42D5A-B3B2-4C37-B75F-71D54AA381C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D0112E0-F891-46F1-B634-B23FE322F017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D0112E0-F891-46F1-B634-B23FE322F017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D0112E0-F891-46F1-B634-B23FE322F017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D0112E0-F891-46F1-B634-B23FE322F017}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{925BF550-A9DB-42F4-B701-09D41B8A6004} = {EACE70B7-F5EB-4344-894E-966150C2CE52}
 		{AB5AA266-B534-4639-91BA-A54D31E2AD6C} = {EACE70B7-F5EB-4344-894E-966150C2CE52}
 		{66F42D5A-B3B2-4C37-B75F-71D54AA381C8} = {EACE70B7-F5EB-4344-894E-966150C2CE52}
+		{9D0112E0-F891-46F1-B634-B23FE322F017} = {EACE70B7-F5EB-4344-894E-966150C2CE52}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AE214135-97E2-4706-85D2-B1C121E7821C}

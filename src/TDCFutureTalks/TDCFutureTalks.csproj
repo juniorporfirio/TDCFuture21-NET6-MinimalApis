@@ -10,6 +10,7 @@
     <Using Include="Microsoft.EntityFrameworkCore" />
     <Using Include="MiminalApis.Validators" />
     <Using Include="System.ComponentModel.DataAnnotations" />
+	<Using Include="FluentValidation" />
   </ItemGroup>
 
 	<ItemGroup>

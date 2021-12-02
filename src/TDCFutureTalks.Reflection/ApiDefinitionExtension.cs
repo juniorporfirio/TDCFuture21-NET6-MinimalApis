@@ -4,10 +4,10 @@
         {
             var apiDefinitions = new List<IApiDefinition>();
 
-            var apis = System.Reflection.Assembly.GetExecutingAssembly()
-            .GetTypes()
-            .Where(type => typeof(IApiDefinition).IsAssignableFrom(type) && !type.IsInterface)
-            .Select(types=> Activator.CreateInstance(types)).Cast<IApiDefinition>();
+        var apis = typeof(IApiDefinition).Assembly
+            .ExportedTypes
+            .Where(type => typeof(IApiDefinition).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
+            .Select(Activator.CreateInstance).Cast<IApiDefinition>();
 
             apiDefinitions.AddRange(apis);
 

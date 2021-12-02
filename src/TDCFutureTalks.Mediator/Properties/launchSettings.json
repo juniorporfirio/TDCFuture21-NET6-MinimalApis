@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "TDCFutureTalks.Strutured": {
+    "TDCFutureTalks.Mediator": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

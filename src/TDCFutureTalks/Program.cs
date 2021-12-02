@@ -1,8 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
 
 //ConfigureServices
+
 var connection = builder.Configuration.GetConnectionString("Sqlite");
 builder.Services.AddDbContext<TalkContext>(options => options.UseSqlite(connection));
+builder.Services.AddScoped<IValidator<Talk>, TalkValidator>();
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 using var app = builder.Build();
 
@@ -10,6 +15,8 @@ using var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error");
+    app.UseSwagger();
+    app.UseSwaggerUI();
     GenerateData(app);
 }
 
@@ -29,13 +36,12 @@ app.MapGet("/talk/{id}", async (TalkContext context, Guid id) =>
     return Results.Ok(talk);
 });
 
-
 app.MapPost("/talk/new", (TalkContext context, Talk talk) =>
 {
     context.Talk.Add(talk);
     context.SaveChanges();
     return Results.Created($"talk/{talk.Id}", talk);
-});
+}).WithValidator<Talk>();
 
 
 await app.RunAsync();
@@ -67,8 +73,8 @@ static void GenerateData(WebApplication app)
 
 //Domain
 record Talk(Guid Id, 
-[property: Required( ErrorMessage ="Please, input the title")]string Title,  
-[property: Required(ErrorMessage ="Please, input the name of speaker")]string Speaker, 
+string Title,  
+string Speaker, 
 string Trail);
 
 
@@ -77,4 +83,13 @@ internal class TalkContext : DbContext
 {
     public TalkContext(DbContextOptions<TalkContext> options) : base(options){ }
     public DbSet<Talk> Talk => Set<Talk>();
+}
+internal class TalkValidator : AbstractValidator<Talk>
+{
+    public TalkValidator()
+    {
+        RuleFor(s => s.Title).NotEmpty().WithMessage("Required title");
+        RuleFor(s => s.Speaker).NotEmpty().WithMessage("Required Speaker");
+    }
+
 }
